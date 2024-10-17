@@ -27,7 +27,15 @@ public class BoundaryEmmenager {
 					break;
 
 				case 2:
-					//TODO a completer
+					//TODO
+					StringBuilder estgaulois = new StringBuilder();
+					//a complete
+					
+					estgaulois.append("Bienvenu villagois"+nomVisiteur);
+					estgaulois.append("\n" );
+					estgaulois.append("Quelle est votre force ?" );
+					int forceGaulois =Clavier.entrerEntier(estgaulois.toString());
+					controlEmmenager.ajouterGaulois(nomVisiteur, forceGaulois);// apres la fleche , on est dans control emmenager donc ecrire avant
 					break;
 
 				default:
@@ -40,6 +48,30 @@ public class BoundaryEmmenager {
 	}
 
 	private void emmenagerDruide(String nomVisiteur) {
-		//TODO a completer
+		StringBuilder estdruid =new StringBuilder();
+		estdruid.append("Bienvenu druid"+ nomVisiteur );
+		estdruid.append("\n" );
+		estdruid.append("Quelle est votre force" );
+		int forceDruide =Clavier.entrerEntier(estdruid.toString());
+		int effetpotionMax;
+		int effetpotionMin;
+		
+		do {//do while pour dabord initialiser les val puis le faire
+			estdruid.append("Quelle est la force de la potion la plus faible que vous produisiez");
+			effetpotionMin =Clavier.entrerEntier(estdruid.toString());
+			estdruid.append("Quelle est la force de la potion la plus forte que vous produisiez");
+			effetpotionMax =Clavier.entrerEntier(estdruid.toString());
+			if(effetpotionMax<effetpotionMin) {
+				estdruid.append("Attention Druid , Vous vou etes tromper entre le minimum et le maximum");
+				
+			}
+			
+		}while(effetpotionMax<effetpotionMin);
+			controlEmmenager.ajouterDruide(nomVisiteur, forceDruide,effetpotionMin,effetpotionMax);
+				
+		
+		
+		
+		
 	}
 }
